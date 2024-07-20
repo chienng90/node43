@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "63e64370-ca1b-4245-8124-7f8f7f461054",
+		"name": "node43",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29246042"
+	},
+	"item": [
+		{
+			"name": "food",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"Sarah Williams\",\r\n    \"email\": \"sarah.williams@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/food-app/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"john.doe@example.com\", \r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/food-app/authenticate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "foods",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ3NDk5OSwiZXhwIjoxNzIxNDc4NTk5fQ.880BiLjzCeyom79_LfyBm9Jh6XuohvwXSlWj7s6s2is",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/food-app/foods",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"foods"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "food-details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ2ODcyMiwiZXhwIjoxNzIxNDcyMzIyfQ.SEL0mTGuf9l7B8kSR-49xuRfKLKG6FVvZa7tRYAKiiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/food-app/foods/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"foods",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve-restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ1ODA2NSwiZXhwIjoxNzIxNDYxNjY1fQ.VGhxVSzr1OqEYaHhe4mt6XzFoCELpN4ibB88LaLYhC4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/food-app/restaurants",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"restaurants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve-restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ2NDgyMCwiZXhwIjoxNzIxNDY4NDIwfQ.13LlopQGnDPnqiSIglxYMGE8CUAgqapO1p-ToVlvqlk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/food-app/restaurants/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"restaurants",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rate-a-restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ1ODA2NSwiZXhwIjoxNzIxNDYxNjY1fQ.VGhxVSzr1OqEYaHhe4mt6XzFoCELpN4ibB88LaLYhC4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/food-app/restaurants/1/rate",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"restaurants",
+								"1",
+								"rate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order-history",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ2ODcyMiwiZXhwIjoxNzIxNDcyMzIyfQ.SEL0mTGuf9l7B8kSR-49xuRfKLKG6FVvZa7tRYAKiiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/food-app/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "place an order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ2ODcyMiwiZXhwIjoxNzIxNDcyMzIyfQ.SEL0mTGuf9l7B8kSR-49xuRfKLKG6FVvZa7tRYAKiiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\": \"ORDER513\",\r\n    \"food_id\": 12,\r\n    \"amount\": 5,\r\n    \"arr_sub_food\": \"[1, 2]\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/food-app/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "like-a-restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ3MjU2OCwiZXhwIjoxNzIxNDc2MTY4fQ.hgCNG9B9JkoYwVmF0B50XCk2bMk_UaWodDe1GKIhsdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/food-app/restaurants/10/like",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"restaurants",
+								"10",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unlike-a-restaurant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMTQ3MjU2OCwiZXhwIjoxNzIxNDc2MTY4fQ.hgCNG9B9JkoYwVmF0B50XCk2bMk_UaWodDe1GKIhsdA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/food-app/restaurants/10/unlike",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"food-app",
+								"restaurants",
+								"10",
+								"unlike"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

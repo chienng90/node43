@@ -16,6 +16,7 @@ CREATE TABLE restaurant (
 
 -- create table rate_res
 CREATE TABLE rate_res(
+	`id` INT AUTO_INCREMENT PRIMARY KEY,
 	user_id INT, 
 	res_id INT, 
 	amount INT, 
@@ -29,6 +30,7 @@ CREATE TABLE like_res(
 	user_id INT, 
 	res_id INT, 
 	date_like DATETIME, 
+	PRIMARY KEY (user_id, res_id),
 	FOREIGN KEY (user_id) REFERENCES `user`(user_id),
 	FOREIGN KEY (res_id) REFERENCES restaurant(res_id)
 );
@@ -61,10 +63,11 @@ CREATE TABLE sub_food(
 
 -- create table order 
 CREATE TABLE `order`(
+	`id` INT AUTO_INCREMENT PRIMARY KEY,
 	user_id INT, 
 	food_id INT,
 	amount INT, 
-	`code` VARCHAR(100),
+	`code` VARCHAR(100) UNIQUE,
 	arr_sub_id VARCHAR(255),
 	FOREIGN KEY (user_id) REFERENCES `user`(user_id),
 	FOREIGN KEY (food_id) REFERENCES food(food_id)
@@ -103,20 +106,20 @@ INSERT INTO food (food_name, price, image, `desc`, type_id) VALUES
 
 -- create data for table user
 INSERT INTO `user` (full_name, email, `password`) VALUES
-('John Doe', 'john.doe@example.com', 'password123'),
-('Jane Smith', 'jane.smith@example.com', 'mysecurepassword'),
-('Alice Johnson', 'alice.johnson@example.com', 'alicepassword'),
-('Bob Brown', 'bob.brown@example.com', 'bobbypassword'),
-('Charlie Davis', 'charlie.davis@example.com', 'charlied123'),
-('Diana Clark', 'diana.clark@example.com', 'dianapassword'),
-('Ethan Moore', 'ethan.moore@example.com', 'ethanpass456'),
-('Fiona Hall', 'fiona.hall@example.com', 'fionapass789'),
-('George King', 'george.king@example.com', 'georgeking2024'),
-('Hannah Lee', 'hannah.lee@example.com', 'hannahlee321'),
-('Michael Johnson', 'michael.johnson@example.com', 'michaelpass'),
-('Sarah Williams', 'sarah.williams@example.com', 'sarah123'),
-('David Miller', 'david.miller@example.com', 'davidmpass'),
-('Emily Brown', 'emily.brown@example.com', 'emilyb123');
+('John Doe', 'john.doe@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Jane Smith', 'jane.smith@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Alice Johnson', 'alice.johnson@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Bob Brown', 'bob.brown@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Charlie Davis', 'charlie.davis@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Diana Clark', 'diana.clark@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Ethan Moore', 'ethan.moore@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Fiona Hall', 'fiona.hall@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('George King', 'george.king@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Hannah Lee', 'hannah.lee@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Michael Johnson', 'michael.johnson@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Sarah Williams', 'sarah.williams@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('David Miller', 'david.miller@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu'),
+('Emily Brown', 'emily.brown@example.com', '$2b$10$20SOSQj7ujkwGEX3QNKBGO7Z4uRpPf2RssWwhuJCLpO6vroqOm9Gu');
 
 -- create data for table order 
 INSERT INTO `order` (user_id, food_id, amount, `code`, arr_sub_id) VALUES
@@ -238,3 +241,11 @@ LEFT JOIN rate_res rr ON u.user_id = rr.user_id
 WHERE o.user_id IS NULL
   AND lr.user_id IS NULL
   AND rr.user_id IS NULL;
+  
+-- Query to Get the Average Like and Rate that Users Give to Restaurants:
+SELECT u.user_id, u.full_name, COUNT(lr.res_id) / COUNT(DISTINCT u.user_id) AS avg_likes
+FROM `user` u
+JOIN like_res lr ON u.user_id = lr.user_id
+GROUP BY u.user_id, u.full_name;
+
+-- 
