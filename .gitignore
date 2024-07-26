@@ -131,3 +131,4 @@ dist
 
 # volume mysql
 chapter-2-sequelize/cons/volumes/db/mysql
+chapter-3-capstone/cons/volumes/db/mysql
