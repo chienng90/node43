@@ -3,6 +3,8 @@ class CapstoneConfig {
   #server;
   #auth;
   #pagination;
+  #upload;
+  #cloudinary;
 
   constructor() {
     this.#db = {
@@ -28,6 +30,17 @@ class CapstoneConfig {
     this.#pagination = {
       pageSize: parseInt(process.env.CAPSTONE_APP_PAGINATION_SIZE, 10),
     };
+    this.#upload = {
+      defaultAllowExtensions:
+        process.env.CAPSTONE_APP_UPLOAD_DEFAULT_ALLOW_EXTS.split(",").map(
+          (type) => type.trim()
+        ),
+    };
+    this.#cloudinary = {
+      cloud_name: process.env.CAPSTONE_APP_CLOUDINARY_NAME,
+      api_key: process.env.CAPSTONE_APP_CLOUDINARY_API_KEY,
+      api_secret: process.env.CAPSTONE_APP_CLOUDINARY_API_SECRET,
+    };
   }
 
   getDbConfig() {
@@ -44,6 +57,13 @@ class CapstoneConfig {
 
   getPaginationConfig() {
     return { ...this.#pagination };
+  }
+
+  getUploadConfig() {
+    return { ...this.#upload };
+  }
+  getCloudinaryConfig() {
+    return { ...this.#cloudinary };
   }
 }
 

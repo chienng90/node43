@@ -8,10 +8,17 @@ imageRouter.get(
   "/images",
   AsyncHandler.catchAsync(imageController.freeTextSearch)
 );
-
 imageRouter.get(
   "/images/:imageId",
   AsyncHandler.catchAsync(imageController.retrieveImage)
+);
+imageRouter.get(
+  "/images/:imageId/gallery",
+  AsyncHandler.catchAsync(imageController.existImageInGallery)
+);
+imageRouter.delete(
+  "/images/:imageId",
+  AsyncHandler.catchAsync(imageController.deleteImage)
 );
 
 export default imageRouter;
