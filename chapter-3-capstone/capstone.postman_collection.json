@@ -1,0 +1,650 @@
+{
+	"info": {
+		"_postman_id": "1d1c96c0-6fe1-4af7-9c34-ff485e6921f2",
+		"name": "capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29246042"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\": \"John Doe B\",\r\n    \"email\": \"johnDoeB@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/capstone/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huRG9lQkBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgyOTczOCwiZXhwIjoxNzIyODMzMzM4fQ.fEtHKUoEHhH1bkmcIaDF-AXSRdKwMsqoiV0BT1EjVs4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": \"33\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/capstone/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve user profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huRG9lQkBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgyOTczOCwiZXhwIjoxNzIyODMzMzM4fQ.fEtHKUoEHhH1bkmcIaDF-AXSRdKwMsqoiV0BT1EjVs4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/capstone/profile",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"alice@example.com\", \n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/capstone/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve /search images",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgzOTAwMiwiZXhwIjoxNzIyODQyNjAyfQ.JRfjcLLkUbDJZdMoXzmLdLd3abMjiRfv5AHp8w8p-5Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"chien.ngo.q+1@gmail.com\", \n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/capstone/images?currentPage=1&itemPerPage=10&freeText=Ocean Savanna Wildlife",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"images"
+					],
+					"query": [
+						{
+							"key": "currentPage",
+							"value": "1"
+						},
+						{
+							"key": "itemPerPage",
+							"value": "10"
+						},
+						{
+							"key": "freeText",
+							"value": "Ocean Savanna Wildlife"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve comments' image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huRG9lQkBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgyOTczOCwiZXhwIjoxNzIyODMzMzM4fQ.fEtHKUoEHhH1bkmcIaDF-AXSRdKwMsqoiV0BT1EjVs4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/capstone/images/:imageId/comments",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"images",
+						":imageId",
+						"comments"
+					],
+					"variable": [
+						{
+							"key": "imageId",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create an image's comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huRG9lQkBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgyOTczOCwiZXhwIjoxNzIyODMzMzM4fQ.fEtHKUoEHhH1bkmcIaDF-AXSRdKwMsqoiV0BT1EjVs4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"Test Comment\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/capstone/images/13/comments",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"images",
+						"13",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve image details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huRG9lQkBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgyOTczOCwiZXhwIjoxNzIyODMzMzM4fQ.fEtHKUoEHhH1bkmcIaDF-AXSRdKwMsqoiV0BT1EjVs4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"chien.ngo.q+1@gmail.com\", \n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/capstone/images/13",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"images",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huRG9lQkBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgyOTczOCwiZXhwIjoxNzIyODMzMzM4fQ.fEtHKUoEHhH1bkmcIaDF-AXSRdKwMsqoiV0BT1EjVs4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sunset\",\r\n    \"path\": \"sunset.jpg\",\r\n    \"desc\": \"Beautiful sunset at the beach\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/capstone/images",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload (upload a simple image)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjU4MzgzMSwiZXhwIjoxNzIyNTg3NDMxfQ.jyMk5I_7HE6XKQrRIIstgC7Kw8HuzZxUxw4W9Egz2Bo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Chien Ngo/Downloads/jpg_44-2.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/capstone/multimedia",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"multimedia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve images' bookmark",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJqb2huRG9lQkBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgyOTczOCwiZXhwIjoxNzIyODMzMzM4fQ.fEtHKUoEHhH1bkmcIaDF-AXSRdKwMsqoiV0BT1EjVs4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/capstone/bookmarks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"bookmarks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "retrieve bookmark details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgzMDQwMSwiZXhwIjoxNzIyODM0MDAxfQ.xU4XiNQjWENE73OTgUIUuy30BhTyRt7thJnLQOp_4iU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/capstone/bookmarks/:imageId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"bookmarks",
+						":imageId"
+					],
+					"variable": [
+						{
+							"key": "imageId",
+							"value": "14"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a bookmark",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgzMTI0OSwiZXhwIjoxNzIyODM0ODQ5fQ.2-JZNljCGw1l0530UnaEseocLIofTuF6rOFjDD50x9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/capstone/bookmarks/:imageId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"bookmarks",
+						":imageId"
+					],
+					"variable": [
+						{
+							"key": "imageId",
+							"value": "13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve an image belong to user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgzMTI0OSwiZXhwIjoxNzIyODM0ODQ5fQ.2-JZNljCGw1l0530UnaEseocLIofTuF6rOFjDD50x9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/capstone/profile/images/:imageId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"profile",
+						"images",
+						":imageId"
+					],
+					"variable": [
+						{
+							"key": "imageId",
+							"value": "22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an image belong to user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgzMTI0OSwiZXhwIjoxNzIyODM0ODQ5fQ.2-JZNljCGw1l0530UnaEseocLIofTuF6rOFjDD50x9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/capstone/profile/images/:imageId",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"profile",
+						"images",
+						":imageId"
+					],
+					"variable": [
+						{
+							"key": "imageId",
+							"value": "22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve images belong to user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgzMTI0OSwiZXhwIjoxNzIyODM0ODQ5fQ.2-JZNljCGw1l0530UnaEseocLIofTuF6rOFjDD50x9g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/capstone/profile/images",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"profile",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve images' bookmarks belong to user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTcyMjgzMzIwMCwiZXhwIjoxNzIyODM2ODAwfQ.izJDdyygrLRo_pLi0_Z9HoTww0qH7HwHhwxuhGIIeuE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/capstone/profile/bookmarks?freeText=Mountain",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"capstone",
+						"profile",
+						"bookmarks"
+					],
+					"query": [
+						{
+							"key": "freeText",
+							"value": "Mountain"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

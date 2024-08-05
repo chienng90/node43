@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mysql:
+    image: public.ecr.aws/docker/library/mysql:8.3.0
+    container_name: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: capstone
+      LANG: C.UTF_8
+    command: --init-file /data/application/capstone.sql
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 1G
+    volumes:
+      - ./volumes/db/mysql:/var/lib/mysql
+      - ./volumes/db/capstone.sql:/data/application/capstone.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+networks:
+  default:
+    name: local
+    external: true
